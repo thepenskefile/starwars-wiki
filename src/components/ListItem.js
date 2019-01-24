@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from '@reach/router'
+import {ITEM_TYPES} from '../_types/item_types'
 
 const ListItem = ({ itemType, item }) =>  (
     <Link to={ `/${itemType}/${item.url.replace( /^\D+/g, '')}`}>
         <div>
-            {item.name}
+            {itemType === ITEM_TYPES.FILMS ? item.title : item.name}
         </div>
     </Link>
 )

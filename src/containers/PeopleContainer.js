@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import {createLoader} from 'react-loads'
+import Loads from 'react-loads'
 import axios from 'axios';
+import { Link } from '@reach/router';
 
 import ListItem from '../components/ListItem'
 import {ITEM_TYPES} from '../_types/item_types'
@@ -11,39 +12,33 @@ export default class PeopleContainer extends Component {
     const response = await axios.get(
       'https://swapi.co/api/people/'
     );
-    console.log("About to return");
     return response.data.results;
   }
 
   render = () => {
-    const FetchPeople = createLoader({
-      contextKey: "planets",
-      load: this.fetchPeople,
-      loadOnMount: true
-    })
     return (
       <Fragment>
+        <Link to="/">Back</Link>
         <div>People</div>
-        <FetchPeople>
-          <FetchPeople.Loading>
-            <p>Loading...</p>
-          </FetchPeople.Loading>
-          <FetchPeople.Success>
-            {({response: people}) => (
+        <Loads contextKey="people" loadOnMount load={this.fetchPeople}>
+          {({ isLoading, isSuccess, isError, error, response }) => (
+          <Fragment>
+            {isLoading && <div>Loading...</div>}
+            {isSuccess && (
               <Fragment>
-                {people.length === 0 && (
+                {response.length === 0 && (
                   <div>No people</div>
                 )}
-                {people.map(person => (
-                  <Fragment>
-                    <ListItem itemType={ITEM_TYPES.PEOPLE} item={person}/>
-                  </Fragment>                  
+                {response.map(person => (
+                  <ListItem key={person.name} itemType={ITEM_TYPES.PEOPLE} item={person}/>
                 ))}
-              </Fragment>
-            )}
-          </FetchPeople.Success>
-        </FetchPeople>
-      </Fragment>      
+              </Fragment>              
+            )}            
+            {isError && <div>An error occurred! {error.message}</div>}
+          </Fragment>
+        )}
+        </Loads>
+      </Fragment>  
     );
   };
 }
