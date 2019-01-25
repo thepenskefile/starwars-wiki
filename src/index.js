@@ -5,12 +5,12 @@ import * as serviceWorker from './serviceWorker';
 import {LoadsProvider} from 'react-loads';
 import { Router } from '@reach/router';
 import { ThemeProvider } from 'fannypack';
-import PeopleContainer from './containers/PeopleContainer';
-import FilmsContainer from './containers/FilmsContainer';
-import PlanetsContainer from './containers/PlanetsContainer';
-import SpeciesContainer from './containers/SpeciesContainer';
-import StarshipsContainer from './containers/StarshipsContainer';
-import VehiclesContainer from './containers/VehiclesContainer';
+import PeopleContainer from './containers/sections/PeopleContainer';
+import FilmsContainer from './containers/sections/FilmsContainer';
+import PlanetsContainer from './containers/sections/PlanetsContainer';
+import SpeciesContainer from './containers/sections/SpeciesContainer';
+import StarshipsContainer from './containers/sections/StarshipsContainer';
+import VehiclesContainer from './containers/sections/VehiclesContainer';
 
 import PlanetItemContainer from './containers/items/PlanetItemContainer';
 import PersonItemContainer from './containers/items/PersonItemContainer'
@@ -34,7 +34,7 @@ render(
                 <SpeciesItemContainer path='/species/:id'/>
 				<StarshipsContainer path='/starships'/>
                 <StarshipItemContainer path='/starships/:id'/>
-				<VehiclesContainer path='/vehicles'/>
+                <VehiclesContainer path='/vehicles'/>
                 <VehicleItemContainer path='/vehicles/:id'/>
 			</Router>
 		</ThemeProvider>
