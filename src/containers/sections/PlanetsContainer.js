@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
-import { Link } from '@reach/router';
 
-import GeneralSectionContainer from '../GeneralSectionContainer'
-import {ITEM_TYPES} from '../../_types/item_types'
+import GeneralSectionContainer from '../GeneralSectionContainer';
+import {ITEM_TYPES} from '../../_types/item_types';
+
 
 export default class PlanetsContainer extends Component {
 
@@ -21,15 +21,14 @@ export default class PlanetsContainer extends Component {
     );
     return response.data;
   }
-  
+
   render = () => {
     const contextKey = 'planets';
     return (
       <Fragment>
-        <Link to="/">Back</Link>
-        <div>Planets</div>
+
         <Loads contextKey={contextKey} loadOnMount load={this.fetchPlanets} update={this.updatePlanets}>
-          {({ load, update, isLoading, isSuccess, isError, error, response }) => (
+          {({ update, isLoading, isSuccess, isError, error, response }) => (
             <GeneralSectionContainer 
               contextKey = {contextKey}
               itemType = {ITEM_TYPES.PLANETS}
@@ -39,6 +38,7 @@ export default class PlanetsContainer extends Component {
               isSuccess = {isSuccess}
               isError = {isError}
               error = {error}
+              heading = {'Planets'}
             />
           )}
         </Loads>

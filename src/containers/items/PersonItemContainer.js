@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
 import { Link } from '@reach/router';
+import { Spinner, Box } from 'fannypack'
 
 class PersonItemContainer extends Component {
     fetchPerson = async () => {
@@ -19,9 +20,9 @@ class PersonItemContainer extends Component {
                 <Loads contextKey={`person.${id}`} loadOnMount load={this.fetchPerson}>
                     {({ isLoading, isSuccess, isError, error, response }) => (
                         <Fragment>
-                            {isLoading && <div>Loading...</div>}
+                            {isLoading && <Spinner size='large' />}
                             {isSuccess && (
-                                <Fragment>
+                                <Box>
                                     <div>{response.name}</div>
                                     <div>Height: {response.height}</div>
                                     <div>Mass: {response.mass}</div>
@@ -29,7 +30,7 @@ class PersonItemContainer extends Component {
                                     <div>Eye Colour: {response.eye_color}</div>
                                     <div>Birth year: {response.birth_year}</div>
                                     <div>Gender: {response.gender}</div>                                    
-                                </Fragment>                                 
+                                </Box>                                 
                             )}
                             {isError && <div>An error occurred! {error.message}</div>}
                         </Fragment>

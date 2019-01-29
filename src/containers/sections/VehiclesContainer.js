@@ -6,6 +6,8 @@ import { Link } from '@reach/router';
 import GeneralSectionContainer from '../GeneralSectionContainer'
 import {ITEM_TYPES} from '../../_types/item_types'
 
+import MainHeading from '../../ui/MainHeading';
+
 export default class VehiclesContainer extends Component {
 
   fetchVehicles = async ( ) => {
@@ -26,10 +28,8 @@ export default class VehiclesContainer extends Component {
     const contextKey = 'vehicles';
     return (
       <Fragment>
-        <Link to="/">Back</Link>
-        <div>Vehicles</div>
         <Loads contextKey={contextKey} loadOnMount load={this.fetchVehicles} update={this.updateVehicles}>
-          {({ load, update, isLoading, isSuccess, isError, error, response }) => (
+          {({ update, isLoading, isSuccess, isError, error, response }) => (
             <GeneralSectionContainer 
               contextKey = {contextKey}
               itemType = {ITEM_TYPES.VEHICLES}
@@ -39,6 +39,7 @@ export default class VehiclesContainer extends Component {
               isSuccess = {isSuccess}
               isError = {isError}
               error = {error}
+              heading = 'Vehicles'
             />
           )}
         </Loads>

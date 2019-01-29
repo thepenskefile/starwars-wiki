@@ -5,6 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import {LoadsProvider} from 'react-loads';
 import { Router } from '@reach/router';
 import { ThemeProvider } from 'fannypack';
+
+import MainWrapper from './containers/MainWrapper';
 import PeopleContainer from './containers/sections/PeopleContainer';
 import FilmsContainer from './containers/sections/FilmsContainer';
 import PlanetsContainer from './containers/sections/PlanetsContainer';
@@ -22,21 +24,23 @@ import VehicleItemContainer from './containers/items/VehicleItemContainer'
 render(    
 	<LoadsProvider>
 		<ThemeProvider>
-			<Router>
-				<Index path='/'/>
-				<PeopleContainer path='/people'/>
-                <PersonItemContainer path='/people/:id'/>
-				<FilmsContainer path='/films'/>
-                <FilmItemContainer path='/films/:id'/>
-				<PlanetsContainer path='/planets'/>
-				<PlanetItemContainer path='/planets/:id'/>
-				<SpeciesContainer path='/species'/>
-                <SpeciesItemContainer path='/species/:id'/>
-				<StarshipsContainer path='/starships'/>
-                <StarshipItemContainer path='/starships/:id'/>
-                <VehiclesContainer path='/vehicles'/>
-                <VehicleItemContainer path='/vehicles/:id'/>
-			</Router>
+			<MainWrapper>
+				<Router>
+					<Index path='/'/>
+					<PeopleContainer path='/people'/>
+					<PersonItemContainer path='/people/:id'/>
+					<FilmsContainer path='/films'/>
+					<FilmItemContainer path='/films/:id'/>
+					<PlanetsContainer path='/planets'/>
+					<PlanetItemContainer path='/planets/:id'/>
+					<SpeciesContainer path='/species'/>
+					<SpeciesItemContainer path='/species/:id'/>
+					<StarshipsContainer path='/starships'/>
+					<StarshipItemContainer path='/starships/:id'/>
+					<VehiclesContainer path='/vehicles'/>
+					<VehicleItemContainer path='/vehicles/:id'/>
+				</Router>
+			</MainWrapper>				
 		</ThemeProvider>
 	</LoadsProvider>,        
        

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
 import { Link } from '@reach/router';
+import { Box } from 'fannypack';
 
 class FilmItemContainer extends Component {
     fetchFilm = async () => {
@@ -21,12 +22,12 @@ class FilmItemContainer extends Component {
                         <Fragment>
                             {isLoading && <div>Loading...</div>}
                             {isSuccess && (
-                                <Fragment>
+                                <Box>
                                     <div>{response.title}</div>
                                     <div>Director: {response.director}</div>
                                     <div>Producer: {response.producer}</div>
                                     <div>Release Date: {response.release_date}</div>
-                                </Fragment>                                 
+                                </Box>                                 
                             )}
                             {isError && <div>An error occurred! {error.message}</div>}
                         </Fragment>

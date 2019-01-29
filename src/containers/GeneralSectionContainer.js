@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import ListItem from '../components/ListItem'
 import Pagination from './Pagination'
 import {ITEM_TYPES} from '../_types/item_types'
+import MainHeading from '../ui/MainHeading';
+import { Link } from '@reach/router';
+
+import { Spinner } from 'fannypack'
+
 
 export default class GeneralSectionContainer extends Component {
 
@@ -17,13 +22,16 @@ export default class GeneralSectionContainer extends Component {
         isLoading, 
         isSuccess,
         isError,
-        error
+        error,
+        heading
       } = this.props;
 
     return (
       <Fragment>
-          <Fragment>
-            {isLoading && <div>Loading...</div>}
+          <Link to="/">Back</Link>
+          <MainHeading>{heading}</MainHeading>
+            <Fragment>
+            {isLoading && <Spinner size='large' color='#ffd700'/>}
             {isSuccess && (
               <Fragment>
                 {response.results.length === 0 && (
@@ -36,6 +44,7 @@ export default class GeneralSectionContainer extends Component {
                   backPage={response.previous}
                   nextPage={response.next}
                   onClick={update}
+                  itemType={itemType}
                 />
               </Fragment>           
             )}            
@@ -56,5 +65,6 @@ Pagination.propTypes = {
     isLoading: PropTypes.bool, 
     isSuccess: PropTypes.bool,
     isError: PropTypes.bool,
-    error: PropTypes.string
+    error: PropTypes.string,
+    heading: PropTypes.string
 }

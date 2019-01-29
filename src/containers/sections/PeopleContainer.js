@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
-import { Link } from '@reach/router';
 
 import GeneralSectionContainer from '../GeneralSectionContainer'
 import {ITEM_TYPES} from '../../_types/item_types'
@@ -26,10 +25,8 @@ export default class PeopleContainer extends Component {
     const contextKey = 'people'
     return (
       <Fragment>
-        <Link to="/">Back</Link>
-        <div>People</div>
         <Loads contextKey={contextKey} loadOnMount load={this.fetchPeople} update={this.updatePeople}>
-        {({ load, update, isLoading, isSuccess, isError, error, response }) => (
+          {({ update, isLoading, isSuccess, isError, error, response }) => (
             <GeneralSectionContainer 
               contextKey = {contextKey}
               itemType = {ITEM_TYPES.PEOPLE}
@@ -39,10 +36,11 @@ export default class PeopleContainer extends Component {
               isSuccess = {isSuccess}
               isError = {isError}
               error = {error}
+              heading = {'People'}
             />
           )}
         </Loads>
-      </Fragment>  
+      </Fragment>        
     );
   };
 }
