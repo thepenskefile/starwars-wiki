@@ -3,9 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-scripts": "2.1.3"
+    "@reach/router": "1.1.1",
+    "apollo-boost": "0.1.19",
+    "apollo-client": "2.4.5",
+    "axios": "0.18.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
+    "bulma": "0.7.1",
+    "fannypack": "4.6.1",
+    "graphql": "14.0.2",
+    "reach": "1.0.1",
+    "react": "16.7.0",
+    "react-dom": "16.4.2",
+    "react-loads": "6.0.1",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "1.1.4",
+    "react-test-renderer": "16.5.2",
+    "reakit": "0.15.13",
+    "rebul": "1.0.2",
+    "store": "2.0.12"
   },
   "scripts": {
     "start": "react-scripts start",
