@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
-import { Box, Heading, Image } from 'fannypack';
+import { Box, Heading } from 'fannypack';
 import styled from 'fannypack/styled';
 import BackgroundImage from '../ui/images/stars.png';
-import TwinkleImage from '../ui/images/twinkling.png';
-import '../App.css';
+
 const Main = styled(Box)`
 	text-align: center;
     margin: auto;
@@ -14,6 +13,7 @@ const Main = styled(Box)`
     }
     padding: 20px;
     color: white;
+    font-family: 'Advent Pro', sans-serif;
 `;
 
 const Background = styled(Box)`
@@ -34,7 +34,7 @@ const MainWrapper = ({children}) =>  (
         <Background style={{ backgroundImage: `url(${BackgroundImage})` }}>
             <Box className='twinkling'>
                 <Main>
-                    <Heading>
+                    <Heading fontFamily='jedi-outline' color='#ffd700'>
                         StarWars Wiki
                     </Heading>
                     {children}
