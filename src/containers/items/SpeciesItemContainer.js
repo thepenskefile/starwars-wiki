@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
-import { Link } from '@reach/router';
+import BackButton from '../../ui/BackButton';
+import { Spinner, Box, Grid } from 'fannypack';
+import GridItem from '../../ui/GridItem';
 
 class SpeciesItemContainer extends Component {
     fetchSpecies = async () => {
@@ -15,26 +17,33 @@ class SpeciesItemContainer extends Component {
         const { id } = this.props;
         return (
             <Fragment>
-                <Link to="/species">Back</Link>
+                <BackButton to="/species"/>
                 <Loads contextKey={`species.${id}`} loadOnMount load={this.fetchSpecies}>
                     {({ isLoading, isSuccess, isError, error, response }) => (
                         <Fragment>
-                            {isLoading && <div>Loading...</div>}
+                            {isLoading && <Box><Spinner size='large' color='#ffd700'/></Box>}
                             {isSuccess && (
-                                <Fragment>
-                                    <div>{response.name}</div>
-                                    <div>Classification: {response.classification}</div>
-                                    <div>Designation: {response.designation}</div>
-                                    <div>Average Height: {response.average_height}</div>
-                                    <div>Skin colours: {response.skin_colors}</div>
-                                    <div>Hair colours: {response.hair_colors}</div>
-                                    <div>Eye colours: {response.eye_colors}</div>
-                                    <div>Average Lifespan: {response.average_lifespan}</div>
-                                    <div>Language: {response.language}</div>
-
-                                </Fragment>                                 
+                                <Grid templateColumns="repeat(2, 1fr)" fontSize='25px' autoRows="auto" margin='auto'>
+                                    <GridItem columnStart='1' columnEnd='3'><strong>{response.name}</strong></GridItem>
+                                    <GridItem isTinted isLeft>Classification: </GridItem>
+                                    <GridItem isTinted isRight>{response.classification}</GridItem>
+                                    <GridItem>Designation</GridItem>
+                                    <GridItem>{response.designation}</GridItem>
+                                    <GridItem isTinted isLeft>Average Height</GridItem>
+                                    <GridItem isTinted isRight>{response.average_height}</GridItem>
+                                    <GridItem>Skin colours</GridItem>
+                                    <GridItem>{response.skin_colors}</GridItem>
+                                    <GridItem isTinted isLeft>Hair colours</GridItem>
+                                    <GridItem isTinted isRight>{response.hair_colors}</GridItem>
+                                    <GridItem>Eye colours</GridItem>
+                                    <GridItem>{response.eye_colors}</GridItem>
+                                    <GridItem isTinted isLeft>Average Lifespan</GridItem>
+                                    <GridItem isTinted isRight>{response.average_lifespan}</GridItem>
+                                    <GridItem>Language</GridItem>
+                                    <GridItem>{response.language}</GridItem>
+                                </Grid>                                 
                             )}
-                            {isError && <div>An error occurred! {error.message}</div>}
+                            {isError && <Box>An error occurred! {error.message}</Box>}
                         </Fragment>
                     )}                    
                 </Loads>

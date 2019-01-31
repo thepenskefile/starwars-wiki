@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
-import { Link } from '@reach/router';
+import { Spinner, Box, Grid } from 'fannypack';
+import BackButton from '../../ui/BackButton';
+import GridItem from '../../ui/GridItem';
 
 class PlanetItemContainer extends Component {
     fetchPlanet = async () => {
@@ -15,20 +17,23 @@ class PlanetItemContainer extends Component {
         const { id } = this.props;
         return (
             <Fragment>
-                <Link to="/planets">Back</Link>
+                <BackButton to="/planets"/>
                 <Loads contextKey={`planet.${id}`} loadOnMount load={this.fetchPlanet}>
                     {({ isLoading, isSuccess, isError, error, response }) => (
                         <Fragment>
-                            {isLoading && <div>Loading...</div>}
+                            {isLoading && <Box><Spinner size='large' color='#ffd700'/></Box>}
                             {isSuccess && (
-                                <Fragment>
-                                    <div>{response.name}</div>
-                                    <div>Climate: {response.climate}</div>
-                                    <div>Gravity: {response.gravity}</div>
-                                    <div>Terrain: {response.terrain}</div>
-                                </Fragment>                                 
+                                <Grid templateColumns="repeat(2, 1fr)" fontSize='25px' autoRows="auto" margin='auto'>
+                                    <GridItem columnStart='1' columnEnd='3'><strong>{response.name}</strong></GridItem>
+                                    <GridItem isTinted isLeft>Climate</GridItem>
+                                    <GridItem isTinted isRight>{response.climate}</GridItem>
+                                    <GridItem>Gravity</GridItem>
+                                    <GridItem>{response.gravity}</GridItem>
+                                    <GridItem isTinted isLeft>Terrain</GridItem>
+                                    <GridItem isTinted isRight>{response.terrain}</GridItem>
+                                </Grid>                                 
                             )}
-                            {isError && <div>An error occurred! {error.message}</div>}
+                            {isError && <Box>An error occurred! {error.message}</Box>}
                         </Fragment>
                     )}                    
                 </Loads>

@@ -1,3 +1,28 @@
+@font-face {
+  font-family: 'star_jedi';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(./ui/fonts/star_jedi/starjedi/Starjedi.ttf) format('truetype')
+}
+
+@font-face {
+  font-family: 'jedi-outline';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(./ui/fonts/star_jedi/starjedi/Starjhol.ttf) format('truetype')
+}
+
+@font-face {
+  font-family: 'stjedise';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(./ui/fonts/star_jedi/stjedise/STJEDISE.TTF) format('truetype')
+}
+
+
 @keyframes move-twink-back {
   from {background-position:0 0;}
   to {background-position:-10000px 5000px;}

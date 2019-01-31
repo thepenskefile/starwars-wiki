@@ -2,12 +2,12 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import ListItem from '../components/ListItem'
-import Pagination from './Pagination'
+import Pagination from '../ui/PreviousNextButtons'
 import {ITEM_TYPES} from '../_types/item_types'
 import MainHeading from '../ui/MainHeading';
-import { Link } from '@reach/router';
 
 import { Spinner } from 'fannypack'
+import BackButton from '../ui/BackButton';
 
 
 export default class GeneralSectionContainer extends Component {
@@ -28,7 +28,7 @@ export default class GeneralSectionContainer extends Component {
 
     return (
       <Fragment>
-          <Link to="/">Back</Link>
+          <BackButton to="/"/>
           <MainHeading>{heading}</MainHeading>
             <Fragment>
             {isLoading && <Spinner size='large' color='#ffd700'/>}

@@ -12,6 +12,8 @@ const StyledCard = styled(Box)`
     color: black;
     background-color: white;
     opacity: 0.5;
+    font-family: star_jedi;
+    font-size: 20px;
 `;
 
 const Card = ({children}) =>  (
