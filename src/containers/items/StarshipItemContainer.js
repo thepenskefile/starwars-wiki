@@ -21,7 +21,7 @@ class StarshipItemContainer extends Component {
                 <Loads contextKey={`starship.${id}`} loadOnMount load={this.fetchStarship}>
                     {({ isLoading, isSuccess, isError, error, response }) => (
                         <Fragment>
-                            {isLoading && <Box><Spinner size='large' color='#ffd700'/></Box>}
+                            {isLoading && <Box><Spinner marginTop='10px'size='large' color='#ffd700'/></Box>}
                             {isSuccess && (
                                 <ItemGrid 
                                     title = {response.name}

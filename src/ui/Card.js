@@ -12,7 +12,7 @@ const StyledCard = styled(Box)`
     color: black;
     background-color: white;
     opacity: 0.5;
-    font-family: star_jedi;
+    font-family: death-star;
     font-size: 20px;
 `;
 

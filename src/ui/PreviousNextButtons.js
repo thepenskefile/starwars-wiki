@@ -11,7 +11,7 @@ const StyledButton = styled(Button)`
     margin: 20px 20px;
     color: black;
     background-color: #ffd700;
-    font-family: star_jedi;
+    font-family: death-star;
 `;
 
 export default class Pagination extends Component {

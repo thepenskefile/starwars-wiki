@@ -21,7 +21,7 @@ class SpeciesItemContainer extends Component {
                 <Loads contextKey={`species.${id}`} loadOnMount load={this.fetchSpecies}>
                     {({ isLoading, isSuccess, isError, error, response }) => (
                         <Fragment>
-                            {isLoading && <Box><Spinner size='large' color='#ffd700'/></Box>}
+                            {isLoading && <Box><Spinner size='large' marginTop='10px'color='#ffd700'/></Box>}
                             {isSuccess && (
                                 <ItemGrid 
                                     title = {response.name}

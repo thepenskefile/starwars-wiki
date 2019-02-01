@@ -21,7 +21,7 @@ class PlanetItemContainer extends Component {
                 <Loads contextKey={`planet.${id}`} loadOnMount load={this.fetchPlanet}>
                     {({ isLoading, isSuccess, isError, error, response }) => (
                         <Fragment>
-                            {isLoading && <Box><Spinner size='large' color='#ffd700'/></Box>}
+                            {isLoading && <Box><Spinner size='large' marginTop='10px' color='#ffd700'/></Box>}
                             {isSuccess && (
                                 <ItemGrid 
                                     title = {response.name}
