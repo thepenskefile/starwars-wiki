@@ -8,10 +8,10 @@ const StyledButton = styled(Button)`
 	border-width: 0.5px;
 	border-color: rgb(221,221,221);
 	border-radius: 5px;
-    margin: 20px 20px;
     color: black;
+    margin-bottom: 10px;
     background-color: #ffd700;
-    font-family: star_jedi;
+    font-family: death-star;
 `;
 
 const BackButton = ({to}) =>  (

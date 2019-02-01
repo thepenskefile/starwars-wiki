@@ -21,7 +21,8 @@ import SpeciesItemContainer from './containers/items/SpeciesItemContainer'
 import StarshipItemContainer from './containers/items/StarshipItemContainer'
 import VehicleItemContainer from './containers/items/VehicleItemContainer'
 
-render(    
+render(
+	
 	<LoadsProvider>
 		<ThemeProvider>
 			<MainWrapper>
