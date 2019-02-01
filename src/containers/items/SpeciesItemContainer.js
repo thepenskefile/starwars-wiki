@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
 import BackButton from '../../ui/BackButton';
-import { Spinner, Box, Grid } from 'fannypack';
-import GridItem from '../../ui/GridItem';
+import { Spinner, Box } from 'fannypack';
+import ItemGrid from '../ItemGrid';
 
 class SpeciesItemContainer extends Component {
     fetchSpecies = async () => {
@@ -23,25 +23,19 @@ class SpeciesItemContainer extends Component {
                         <Fragment>
                             {isLoading && <Box><Spinner size='large' color='#ffd700'/></Box>}
                             {isSuccess && (
-                                <Grid templateColumns="repeat(2, 1fr)" fontSize='25px' autoRows="auto" margin='auto'>
-                                    <GridItem columnStart='1' columnEnd='3'><strong>{response.name}</strong></GridItem>
-                                    <GridItem isTinted isLeft>Classification: </GridItem>
-                                    <GridItem isTinted isRight>{response.classification}</GridItem>
-                                    <GridItem>Designation</GridItem>
-                                    <GridItem>{response.designation}</GridItem>
-                                    <GridItem isTinted isLeft>Average Height</GridItem>
-                                    <GridItem isTinted isRight>{response.average_height}</GridItem>
-                                    <GridItem>Skin colours</GridItem>
-                                    <GridItem>{response.skin_colors}</GridItem>
-                                    <GridItem isTinted isLeft>Hair colours</GridItem>
-                                    <GridItem isTinted isRight>{response.hair_colors}</GridItem>
-                                    <GridItem>Eye colours</GridItem>
-                                    <GridItem>{response.eye_colors}</GridItem>
-                                    <GridItem isTinted isLeft>Average Lifespan</GridItem>
-                                    <GridItem isTinted isRight>{response.average_lifespan}</GridItem>
-                                    <GridItem>Language</GridItem>
-                                    <GridItem>{response.language}</GridItem>
-                                </Grid>                                 
+                                <ItemGrid 
+                                    title = {response.name}
+                                    data = {{
+                                        'Classification': response.classification ? response.classification : 'N/A',
+                                        'Designation': response.designation ? response.designation : 'N/A',
+                                        'Average Height': response.average_height ? response.average_height : 'N/A',
+                                        'Skin colours': response.skin_colors ? response.skin_colors : 'N/A',
+                                        'Hair colours': response.hair_colors ? response.hair_colors : 'N/A',
+                                        'Eye colours': response.eye_colors ? response.eye_colors : 'N/A',
+                                        'Average lifespan': response.average_lifespan ? response.average_lifespan : 'N/A',
+                                        'Language': response.language ? response.language : 'N/A'
+                                    }}                                
+                                />                          
                             )}
                             {isError && <Box>An error occurred! {error.message}</Box>}
                         </Fragment>

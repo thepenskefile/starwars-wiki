@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
 import BackButton from '../../ui/BackButton';
-import { Spinner, Box, Grid } from 'fannypack';
-import GridItem from '../../ui/GridItem';
+import { Spinner, Box } from 'fannypack';
+import ItemGrid from '../ItemGrid';
 
 class VehicleItemContainer extends Component {
     fetchVehicle = async () => {
@@ -23,25 +23,20 @@ class VehicleItemContainer extends Component {
                         <Fragment>
                             {isLoading && <Box><Spinner size='large' color='#ffd700'/></Box>}
                             {isSuccess && (
-                                <Grid templateColumns="repeat(2, 1fr)" fontSize='25px' autoRows="auto" margin='auto'>
-                                    <GridItem columnStart='1' columnEnd='3'><strong>{response.name}</strong></GridItem>
-                                    <GridItem isTinted isLeft>Model</GridItem>
-                                    <GridItem isTinted isRight>{response.model}</GridItem>
-                                    <GridItem>Manufacturer</GridItem>
-                                    <GridItem>{response.manufacturer}</GridItem>
-                                    <GridItem isTinted isLeft>Cost (in credits)</GridItem>
-                                    <GridItem isTinted isRight>{response.cost_in_credits}</GridItem>
-                                    <GridItem>Max atmospheric speed</GridItem>
-                                    <GridItem>{response.max_atmospheric_speed}</GridItem>
-                                    <GridItem isTinted isLeft>crew</GridItem>
-                                    <GridItem isTinted isRight>{response.crew}</GridItem>
-                                    <GridItem>Passengers</GridItem>
-                                    <GridItem>{response.passengers}</GridItem>
-                                    <GridItem isTinted isLeft>Cargo capacity</GridItem>
-                                    <GridItem isTinted isRight>{response.cargo_capacity}</GridItem>
-                                    <GridItem>Vehicle class</GridItem>
-                                    <GridItem>{response.vehicle_class}</GridItem>
-                                </Grid>                                 
+                                <ItemGrid 
+                                    title = {response.name}
+                                    data = {{
+                                        'Model': response.model ? response.model : 'N/A',
+                                        'Manufacturer': response.manufacturer ? response.manufacturer : 'N/A',
+                                        'Cost (in credits)': response.cost_in_credits ? response.cost_in_credits : 'N/A',
+                                        'Max atmospheric speed': response.max_atmospheric_speed ? response.max_atmospheric_speed : 'N/A',
+                                        'Crew': response.crew ? response.crew : 'N/A',
+                                        'Passengers': response.passengers ? response.passengers : 'N/A',
+                                        'Cargo capacity': response.cargo_capacity ? response.cargo_capacity : 'N/A',
+                                        'Hyperdrive rating': response.hyperdrive_rating ? response.hyperdrive_rating : 'N/A',
+                                        'Vehicle class': response.vehicle_class ? response.vehicle_class : 'N/A'
+                                    }}                                
+                                />                               
                             )}
                             {isError && <div>An error occurred! {error.message}</div>}
                         </Fragment>

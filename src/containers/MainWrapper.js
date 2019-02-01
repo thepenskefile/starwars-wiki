@@ -20,7 +20,7 @@ const Background = styled(Box)`
     background-color: black;
 `;
 
-const Test = styled(Box)`
+const Background2 = styled(Box)`
     background-color: black;
     position: absolute;
     min-height: 100%;
@@ -30,7 +30,7 @@ const Test = styled(Box)`
 
 const MainWrapper = ({children}) =>  (
     <Fragment>
-        <Test style={{ backgroundImage: `url(${BackgroundImage})` }}/>
+        <Background2 style={{ backgroundImage: `url(${BackgroundImage})` }}/>
         <Background style={{ backgroundImage: `url(${BackgroundImage})` }}>
             <Box className='twinkling'>
                 <Main>
