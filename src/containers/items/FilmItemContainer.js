@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
-import { Spinner, Box, Grid } from 'fannypack';
+import { Spinner, Box} from 'fannypack';
 import BackButton from '../../ui/BackButton';
-import GridItem from '../../ui/GridItem';
+import ItemGrid from '../ItemGrid';
 
 class FilmItemContainer extends Component {
     fetchFilm = async () => {
@@ -23,15 +23,14 @@ class FilmItemContainer extends Component {
                         <Fragment>
                             {isLoading && <Box><Spinner size='large' color='#ffd700'/></Box>}
                             {isSuccess && (
-                                <Grid templateColumns="repeat(2, 1fr)" fontSize='25px' autoRows="auto" margin='auto'>
-                                    <GridItem columnStart='1' columnEnd='3'><strong>{response.title}</strong></GridItem>
-                                    <GridItem isTinted isLeft>Director</GridItem>
-                                    <GridItem isTinted isRight>{response.director}</GridItem>
-                                    <GridItem>Producer</GridItem>
-                                    <GridItem>{response.producer}</GridItem>
-                                    <GridItem isTinted isLeft>Release Date</GridItem>
-                                    <GridItem isTinted isRight>{response.release_date}</GridItem>
-                                </Grid>                                 
+                                <ItemGrid 
+                                    title = {response.title}
+                                    data = {{
+                                        'Director': response.director ? response.director : 'N/A',
+                                        'Producer': response.producer ? response.producer : 'N/A',
+                                        'Release date': response.release_date ? response.release_date : 'N/A'
+                                    }}                                
+                                />                           
                             )}
                             {isError && <Box>An error occurred! {error.message}</Box>}
                         </Fragment>

@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads'
 import axios from 'axios';
-import { Spinner, Box, Tooltip, Grid } from 'fannypack'
+import { Spinner, Box, Tooltip } from 'fannypack'
 import BackButton from '../../ui/BackButton';
-import GridItem from '../../ui/GridItem';
+import ItemGrid from '../ItemGrid';
 
 class PersonItemContainer extends Component {
     fetchPerson = async () => {
@@ -20,32 +20,19 @@ class PersonItemContainer extends Component {
                 <BackButton to="/people"/>
                 <Loads contextKey={`person.${id}`} loadOnMount load={this.fetchPerson}>
                     {({ isLoading, isSuccess, isError, error, response }) => (
-                        <Fragment>
+                        <Fragment>                           
                             {isLoading && <Box><Spinner marginTop='10px' size='large' color='#ffd700'/></Box>}
                             {isSuccess && (
-                                <Grid templateColumns="repeat(2, 1fr)" fontSize='25px' autoRows="auto" margin='auto'>
-                                    <GridItem columnStart='1' columnEnd='3'><strong>{response.name}</strong></GridItem>
-                                    <GridItem isTinted isLeft>Height</GridItem>
-                                    <GridItem isTinted isRight>{response.height}</GridItem>
-                                    <GridItem>Mass</GridItem>
-                                    <GridItem>{response.mass}</GridItem>
-                                    <GridItem isTinted isLeft>Hair colour</GridItem>
-                                    <GridItem isTinted isRight>{response.hair_color}</GridItem>
-                                    <GridItem>Eye color</GridItem>
-                                    <GridItem>{response.eye_color}</GridItem>
-                                    <GridItem isTinted isLeft>
-                                        Birth Year 
-                                    </GridItem>
-                                    <GridItem isTinted isRight>{response.birth_year}
-                                        <Tooltip expand fade slide backgroundColor='white' color='black' placement="right" fontSize='20px' margin='5px' opacity='1'>
-                                            The birth year of the person,<br />
-                                            using the in-universe standard of BBY or ABY - <br />
-                                            Before the Battle of Yavin or After the Battle of Yavin.<br />
-                                            The Battle of Yavin is a battle that occurs at the end of<br />
-                                            Star Wars episode IV: A New Hope.
-                                        </Tooltip>
-                                    </GridItem>
-                                </Grid>                               
+                                <ItemGrid 
+                                    title = {response.name}
+                                    data = {{
+                                        'Height': response.height ? response.height : 'N/A',
+                                        'Mass': response.mass ? response.mass : 'N/A',
+                                        'Hair colour': response.hair_color ? response.hair_color : 'N/A',
+                                        'Eye colour': response.eye_color ? response.eye_color : 'N/A',
+                                        'Birth year': response.birth_year ? response.birth_year : 'N/A'
+                                    }}                                
+                                />                            
                             )}
                             {isError && <Box>An error occurred! {error.message}</Box>}
                         </Fragment>
