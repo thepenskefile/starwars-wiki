@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid } from 'fannypack'
+import { Column as _Column } from 'fannypack';
+import styled from 'fannypack/styled';
 
-const GridItem = ({ children, isTinted, isRight, isLeft, ...props }) =>  {
+const StyledColumn = styled(_Column)`
+  @media (max-width: 768px) {
+    border-radius: 0px !important;  
+  }
+`;
+
+
+const Column = ({ children, isTinted, isRight, isLeft, ...props }) =>  {
     return( 
-        <Grid.Item 
+        <StyledColumn
             color={isTinted ? 'black' : 'white'}
             backgroundColor={isTinted ? 'white' : ''} 
             opacity={isTinted ? '0.5' : ''}
@@ -15,8 +23,8 @@ const GridItem = ({ children, isTinted, isRight, isLeft, ...props }) =>  {
             {...props}
         >
             {children}
-        </Grid.Item>
+        </StyledColumn>
     )
 };
 
-export default GridItem;
+export default Column;
