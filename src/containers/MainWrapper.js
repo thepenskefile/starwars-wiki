@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import { Box, Heading } from 'fannypack';
+import { Box, Heading, Container } from 'fannypack';
 import styled from 'fannypack/styled';
 import BackgroundImage from '../ui/images/stars.png';
 
 const Main = styled(Box)`
 	text-align: center;
     margin: auto;
-	width: 700px;
+	max-width: 700px;
 	& a {
 		text-decoration: none;
 		color: white;
@@ -38,7 +38,7 @@ const MainWrapper = ({children}) =>  (
                         StarWars Wiki
                     </Heading>
                     {children}
-                </Main> 
+                </Main>                
             </Box>            
         </Background>  
     </Fragment>      

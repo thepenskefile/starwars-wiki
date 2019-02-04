@@ -3,7 +3,7 @@ import Loads from 'react-loads'
 import axios from 'axios';
 import { Spinner, Box, Tooltip } from 'fannypack'
 import BackButton from '../../ui/BackButton';
-import ItemGrid from '../ItemGrid';
+import ItemDetails from '../ItemDetails';
 
 class PersonItemContainer extends Component {
     fetchPerson = async () => {
@@ -23,7 +23,7 @@ class PersonItemContainer extends Component {
                         <Fragment>                           
                             {isLoading && <Box><Spinner marginTop='10px' size='large' color='#ffd700'/></Box>}
                             {isSuccess && (
-                                <ItemGrid 
+                                <ItemDetails 
                                     title = {response.name}
                                     data = {{
                                         'Height': response.height ? response.height : 'N/A',

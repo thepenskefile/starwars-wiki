@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button } from 'fannypack';
-import styled from 'fannypack/styled';
-import { Link } from '@reach/router';
+import React from 'react'
+import { Button } from 'fannypack'
+import styled from 'fannypack/styled'
+import { Link } from '@reach/router'
 
 const StyledButton = styled(Button)`
 	border-style: solid;
@@ -12,10 +12,10 @@ const StyledButton = styled(Button)`
     margin-bottom: 10px;
     background-color: #ffd700;
     font-family: death-star;
-`;
+`
 
 const BackButton = ({to}) =>  (
-    <Link to={to}><StyledButton>Back</StyledButton></Link>   
+  <Link to={to}><StyledButton>Back</StyledButton></Link>   
 )
 
-export default BackButton;
+export default BackButton

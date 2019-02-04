@@ -1,6 +1,6 @@
-import React from 'react';
-import { Box } from 'fannypack';
-import styled from 'fannypack/styled';
+import React from 'react'
+import { Box } from 'fannypack'
+import styled from 'fannypack/styled'
 
 const StyledCard = styled(Box)`
 	border-style: solid;
@@ -14,12 +14,12 @@ const StyledCard = styled(Box)`
     opacity: 0.5;
     font-family: death-star;
     font-size: 20px;
-`;
+`
 
 const Card = ({children}) =>  (
-    <StyledCard>
-        {children}
-    </StyledCard>    
+  <StyledCard>
+    {children}
+  </StyledCard>    
 )
 
-export default Card;
+export default Card
