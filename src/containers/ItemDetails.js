@@ -18,7 +18,7 @@ const ItemDetails = ({ title, data }: Props) => {
         {Object.entries(data).map(([key, value], index) => {
           if (index % 2 === 0) {
             return (
-              <Fragment key={index}>
+              <Fragment key={key}>
                 <Column spread={6} isTinted isLeft>
                   {key}
                 </Column>
@@ -29,7 +29,7 @@ const ItemDetails = ({ title, data }: Props) => {
             );
           } else {
             return (
-              <Fragment key={index}>
+              <Fragment key={key}>
                 <Column spread={6}>{key}</Column>
                 <Column spread={6}>{value.toString()}</Column>
               </Fragment>
