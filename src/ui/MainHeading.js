@@ -4,14 +4,18 @@ import styled from 'fannypack/styled';
 import '../App.css';
 
 const StyledHeading = styled(Heading)`
-    padding: 20px;
-    font-family: stjedise;    
+  padding: 20px;
+  font-family: stjedise;
 `;
 
-const MainHeading = ({children}) =>  (
-    <StyledHeading use='h3' isSubHeading>
-        {children}
-    </StyledHeading>    
-)
+type Props = {
+  children: Node
+};
+
+const MainHeading = ({ children }: Props) => (
+  <StyledHeading use="h3" isSubHeading>
+    {children}
+  </StyledHeading>
+);
 
 export default MainHeading;

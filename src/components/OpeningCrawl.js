@@ -1,17 +1,20 @@
-import React from 'react'
-import { Box } from 'fannypack'
+import React from 'react';
+import { Box } from 'fannypack';
 
-const OpeningCrawl = ({ title, text }) =>  (
-  <Box className='fade'>
-    <section className='star-wars'>
-      <Box className='crawl'>
-        <Box className='title'>
-          {title}
-        </Box>
+type Props = {
+  title: string,
+  text: string
+};
+
+const OpeningCrawl = ({ title, text }: Props) => (
+  <Box className="fade">
+    <section className="star-wars">
+      <Box className="crawl">
+        <Box className="title">{title}</Box>
         <p>{text}</p>
       </Box>
     </section>
-  </Box>   
-)
+  </Box>
+);
 
-export default OpeningCrawl
+export default OpeningCrawl;
