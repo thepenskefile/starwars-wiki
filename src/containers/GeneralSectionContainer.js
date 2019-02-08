@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, Fragment } from 'react';
 
 import ListItem from '../components/ListItem';
@@ -5,7 +6,7 @@ import Pagination from '../ui/PreviousNextButtons';
 import { ITEM_TYPES } from '../_types/item_types';
 import MainHeading from '../ui/MainHeading';
 
-import { Spinner } from 'fannypack';
+import { Spinner, Box } from 'fannypack';
 import BackButton from '../ui/BackButton';
 
 type Props = {
@@ -15,7 +16,7 @@ type Props = {
   update: Function,
   isLoading: Boolean,
   isSuccess: Boolean,
-  isError: Bopolean,
+  isError: Boolean,
   error: string,
   heading: string
 };
@@ -43,7 +44,7 @@ export default class GeneralSectionContainer extends Component<Props> {
               <Pagination backPage={response.previous} nextPage={response.next} onClick={update} itemType={itemType} />
             </Fragment>
           )}
-          {isError && <div>An error occurred! {error.message}</div>}
+          {isError && <Box>An error occurred! {error.message}</Box>}
         </Fragment>
       </Fragment>
     );

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Button } from 'fannypack';
 import styled from 'fannypack/styled';

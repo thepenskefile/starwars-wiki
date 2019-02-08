@@ -1,4 +1,6 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Box } from 'fannypack';
 import styled from 'fannypack/styled';
 

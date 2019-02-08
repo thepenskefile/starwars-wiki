@@ -1,8 +1,11 @@
+// @flow
 import React, { Component, Fragment } from 'react';
 import { Link } from '@reach/router';
 import Card from '../ui/Card';
 
-class Index extends Component {
+type Props = {}
+
+class Index extends Component<Props> {
   render() {
     return (
       <Fragment>

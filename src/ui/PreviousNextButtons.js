@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, Fragment } from 'react';
 import { Button } from 'fannypack';
 import styled from 'fannypack/styled';
@@ -12,11 +13,13 @@ const StyledButton = styled(Button)`
   background-color: #ffd700;
   font-family: death-star;
 `;
+
 type Props = {
   onClick: Function,
   backPage: string,
   nextPage: string
 };
+
 export default class Pagination extends Component<Props> {
   render = () => {
     const { onClick, backPage, nextPage } = this.props;

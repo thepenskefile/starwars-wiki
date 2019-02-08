@@ -1,4 +1,5 @@
 // @flow
+
 import React, { Fragment } from 'react';
 import { Columns, Box, Heading } from 'fannypack';
 import Column from '../ui/Column';
