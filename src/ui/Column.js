@@ -1,4 +1,6 @@
+// @flow
 import React from 'react';
+import type { Node } from 'react';
 import { Column as _Column } from 'fannypack';
 import styled from 'fannypack/styled';
 

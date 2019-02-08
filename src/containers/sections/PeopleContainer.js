@@ -1,3 +1,4 @@
+// @flow
 import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads';
 import axios from 'axios';
@@ -5,13 +6,15 @@ import axios from 'axios';
 import GeneralSectionContainer from '../GeneralSectionContainer';
 import { ITEM_TYPES } from '../../_types/item_types';
 
-export default class PeopleContainer extends Component {
+type Props = {};
+
+export default class PeopleContainer extends Component<Props> {
   fetchPeople = async () => {
     const response = await axios.get('https://swapi.co/api/people/');
     return response.data;
   };
 
-  updatePeople = async nextPageUrl => {
+  updatePeople = async (nextPageUrl: string )=> {
     const response = await axios.get(nextPageUrl);
     return response.data;
   };

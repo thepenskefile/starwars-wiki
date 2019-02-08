@@ -1,5 +1,4 @@
 // @flow
-
 import React, { Component, Fragment } from 'react';
 import Loads from 'react-loads';
 import axios from 'axios';

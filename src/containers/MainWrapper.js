@@ -1,3 +1,4 @@
+// @flow
 import React, { Fragment } from 'react';
 import { Box, Heading } from 'fannypack';
 import styled, { keyframes } from 'fannypack/styled';

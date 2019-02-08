@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Box } from 'fannypack';
 import styled, { keyframes } from 'fannypack/styled';
