@@ -6,7 +6,7 @@ import axios from 'axios';
 import GeneralSectionContainer from '../GeneralSectionContainer';
 import { ITEM_TYPES } from '../../_types/item_types';
 
-type Props={}
+type Props = {};
 
 export default class VehiclesContainer extends Component<Props> {
   fetchVehicles = async () => {

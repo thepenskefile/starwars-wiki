@@ -13,7 +13,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-2": "6.24.1",
     "bulma": "0.7.1",
-    "eslint": "3.19.0",
+    "eslint": "5.13.0",
     "eslint-config-react-app": "3.0.6",
     "eslint-plugin-flowtype": "3.0.0",
     "eslint-plugin-jsx-a11y": "6.2.0",
@@ -30,7 +30,7 @@
     "react-loads": "6.0.1",
     "react-router-dom": "4.3.1",
     "react-scripts": "1.1.4",
-    "react-test-renderer": "16.5.2",
+    "react-test-renderer": "^16.8.1",
     "reakit": "0.15.13",
     "rebul": "1.0.2",
     "store": "2.0.12"
@@ -39,6 +39,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:jest": "jest",
     "eject": "react-scripts eject",
     "flow": "flow"
   },
@@ -50,5 +51,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-app-rewired": "^2.1.0",
+    "react-testing-library": "^5.5.3"
+  }
 }
